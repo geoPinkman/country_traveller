@@ -19,6 +19,6 @@
 
   http://localhost:8080/routing/{CCA} - shows the country by cca3 code and its neighbors;
 
-  http://localhost:8080/routing/{ORIGIN}/{DESTINATION} - show the shortest route between countries by cca3 code;
+  http://localhost:8080/routing/{ORIGIN}/{DESTINATION} - shows the shortest route between countries by cca3 code;
 
    

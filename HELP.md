@@ -1,20 +1,24 @@
 # Getting Started
 
-### Reference Documentation
-For further reference, please consider the following sections:
+1. Download project: 
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.0/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.0/maven-plugin/reference/html/#build-image)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/3.2.0/reference/htmlsingle/index.html#using.devtools)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.2.0/reference/htmlsingle/index.html#web)
-* [Thymeleaf](https://docs.spring.io/spring-boot/docs/3.2.0/reference/htmlsingle/index.html#web.servlet.spring-mvc.template-engines)
+  git clone https://github.com/geoPinkman/country_traveller.git
 
-### Guides
-The following guides illustrate how to use some features concretely:
+2. Install project using maven:
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
+  mvn clean install 
 
+3. Start project:
+
+  mvn spring-boot:run 
+
+
+# In your browser
+
+  http://localhost:8080/routing/ - shows all available countries;
+
+  http://localhost:8080/routing/{CCA} - shows the country by cca3 code and its neighbors;
+
+  http://localhost:8080/routing/{ORIGIN}/{DESTINATION} - shows the shortest route between countries by cca3 code;
+
+   

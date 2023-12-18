@@ -1,6 +1,7 @@
 package org.testtask.routing.model;
 
 import lombok.*;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -11,7 +12,7 @@ import java.util.Set;
 public class CountryModel {
 
     private String cca3;
-    private Set<String> borders;
+    private List<String> borders;
 
     public void connect(CountryModel country) {
         if (this == country) throw new IllegalArgumentException("Can't connect country to itself");

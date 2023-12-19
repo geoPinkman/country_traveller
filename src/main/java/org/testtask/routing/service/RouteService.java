@@ -1,7 +1,6 @@
 package org.testtask.routing.service;
 
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.testtask.routing.model.CountryModel;
 import org.testtask.routing.parse.JsonParser;
@@ -20,7 +19,7 @@ public class RouteService {
     public CountryModel getCountry(String cca) {
         return jsonParser.parseCountries().stream().filter(c -> c.getCca3().equalsIgnoreCase(cca))
                 .findFirst()
-                .get();
+                . get();
 
     }
 

@@ -29,6 +29,10 @@ public class RouteController {
 
     @GetMapping("/{root}/{goal}")
     public List<String> search(@PathVariable String goal, @PathVariable String root) {
-        return routeService.search(root, goal);
+        List<String> res = routeService.search(root, goal);
+        if (res.isEmpty()) {
+            throw new RuntimeException(String.valueOf(HttpStatus.BAD_REQUEST));
+        }
+        return res;
     }
 }

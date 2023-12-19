@@ -1,6 +1,7 @@
 package org.testtask.routing.service;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.testtask.routing.model.CountryModel;
 import org.testtask.routing.parse.JsonParser;
@@ -46,8 +47,7 @@ public class RouteService {
             alreadyVisited.add(currentCountry);
             queue.addAll(getCountryByCca3(currentCountry, countries).getBorders());
             queue.removeAll(alreadyVisited);
-        }
-            queue.add(goal);
+            }
         }
         return new ArrayList<>();
     }
@@ -55,10 +55,11 @@ public class RouteService {
     public List<String> makeRoute(List<CountryModel> countries, List<String> visitedCountries, String goal, String root) {
         List<String> pureRoute = new ArrayList<>();
         List<String> backRoute = new ArrayList<>();
-        String previousCounty = goal;
+        String previousCounty = "";
         backRoute.add(goal);
         while (!previousCounty.equals(root)) {
-            previousCounty = getCountryByCca3(goal, countries).getBorders()
+            List<String> borders = getCountryByCca3(goal, countries).getBorders();
+            previousCounty = borders
                     .stream()
                     .filter(visitedCountries::contains)
                     .findFirst()
@@ -66,6 +67,7 @@ public class RouteService {
             if (!previousCounty.equals(root)) {
                 backRoute.add(previousCounty);
                 goal = previousCounty;
+                visitedCountries = visitedCountries.subList(0, visitedCountries.indexOf(goal));
             } else {
                 backRoute.add(previousCounty);
             }

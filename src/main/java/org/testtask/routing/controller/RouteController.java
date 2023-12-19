@@ -28,7 +28,7 @@ public class RouteController {
     }
 
     @GetMapping("/{root}/{goal}")
-    public List<String> search(@PathVariable String root, @PathVariable String goal) {
+    public List<String> search(@PathVariable String goal, @PathVariable String root) {
         return routeService.search(root, goal);
     }
 }
